@@ -30248,20 +30248,18 @@ public abstract class GameCharacter implements XMLSaving {
 			return null;
 		}
 		
-		if(body.getPenis().getType()==PenisType.NONE) {
-			for(AbstractClothing c : this.getClothingCurrentlyEquipped()) {
-				if(c.getItemTags().contains(ItemTag.DILDO_OTHER)) {
-					return new Penis(
-							PenisType.DILDO,
-							c.getClothingType().getPenetrationOtherLength(),
-							false,
-							c.getClothingType().getPenetrationOtherGirth(),
-							TesticleSize.ZERO_VESTIGIAL.getValue(),
-							0,
-							2);
-				}
-			}
-		}
+    for(AbstractClothing c : this.getClothingCurrentlyEquipped()) {
+      if(c.getItemTags().contains(ItemTag.DILDO_OTHER)) {
+        return new Penis(
+            PenisType.DILDO,
+            c.getClothingType().getPenetrationOtherLength(),
+            false,
+            c.getClothingType().getPenetrationOtherGirth(),
+            TesticleSize.ZERO_VESTIGIAL.getValue(),
+            0,
+            2);
+      }
+    }
 		
 		return body.getPenis();
 	}
